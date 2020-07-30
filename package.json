@@ -30,6 +30,7 @@
     "@commitlint/cli": "^9.1.1",
     "@commitlint/config-conventional": "^9.1.1",
     "@react-native-community/eslint-config": "^1.1.0",
+    "@release-it/conventional-changelog": "^1.1.4",
     "@types/jest": "^25.2.3",
     "@types/react": "^16.9.43",
     "@types/react-native": "^0.63.1",
@@ -38,7 +39,6 @@
     "@typescript-eslint/parser": "^2.27.0",
     "babel-jest": "^25.1.0",
     "babel-plugin-inline-import": "^3.0.0",
-    "cz-conventional-changelog": "^3.2.0",
     "embedme": "^1.21.0",
     "eslint": "^6.5.1",
     "eslint-plugin-compat": "^3.8.0",
@@ -86,6 +86,12 @@
     },
     "git": {
       "commitMessage": "chore: release v${version}"
+    },
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "preset": "angular",
+        "infile": "CHANGELOG.md"
+      }
     }
   },
   "husky": {
