@@ -15,7 +15,8 @@
     "build:clean": "rimraf lib",
     "build:js": "babel -d lib --extensions '.tsx,.ts' --ignore '**/__tests__' --ignore '**/*.d.ts' --ignore '**/types.ts' src/",
     "build:ts": "tsc --build tsconfig-build.json",
-    "build:doc": "embedme README.MD"
+    "build:doc": "embedme README.MD",
+    "init:integration": "cd integration && npm install"
   },
   "repository": {
     "type": "git",
