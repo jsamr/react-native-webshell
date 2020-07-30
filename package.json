@@ -1,0 +1,80 @@
+{
+  "name": "react-native-webshell",
+  "version": "0.1.0",
+  "description": "A Higher-order component to handle WebView DOM events in react-native",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "test": "npm run test:ts && npm run test:lint && npm run test:jest && npm run build && npm run test:integration",
+    "test:jest": "jest src/",
+    "test:ts": "tsc --noEmit",
+    "test:lint": "eslint --ext webjs,ts,tsx src/",
+    "test:integration": "tsc --project tsconfig-integration.json",
+    "test:doc": "embedme --verify README.MD",
+    "build": "npm run build:clean && npm run build:ts && npm run build:js && npm run build:doc",
+    "build:clean": "rimraf lib",
+    "build:js": "babel -d lib --extensions '.tsx,.ts' --ignore '**/__tests__' --ignore '**/*.d.ts' --ignore '**/types.ts' src/",
+    "build:ts": "tsc --build tsconfig-build.json",
+    "build:doc": "embedme README.MD"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com:jsamr/react-native-webshell.git"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.8.4",
+    "@babel/plugin-transform-react-jsx": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
+    "@babel/runtime": "^7.8.4",
+    "@react-native-community/eslint-config": "^1.1.0",
+    "@types/jest": "^25.2.3",
+    "@types/react": "^16.9.43",
+    "@types/react-native": "^0.63.1",
+    "@types/react-test-renderer": "^16.9.2",
+    "@typescript-eslint/eslint-plugin": "^2.27.0",
+    "@typescript-eslint/parser": "^2.27.0",
+    "babel-jest": "^25.1.0",
+    "babel-plugin-inline-import": "^3.0.0",
+    "embedme": "^1.21.0",
+    "eslint": "^6.5.1",
+    "eslint-plugin-compat": "^3.8.0",
+    "espree": "^7.2.0",
+    "husky": "^4.2.5",
+    "jest": "^25.1.0",
+    "metro-react-native-babel-preset": "^0.59.0",
+    "prettier": "^2.0.4",
+    "react": "16.13.1",
+    "react-native": "0.63.0",
+    "react-native-webview": "^10.3.3",
+    "react-test-renderer": "16.13.1",
+    "release-it": "^13.6.6",
+    "rimraf": "^3.0.2",
+    "typescript": "^3.9.7"
+  },
+  "jest": {
+    "preset": "react-native",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json",
+      "node"
+    ],
+    "transform": {
+      "\\.js$": "<rootDir>/node_modules/babel-jest"
+    },
+    "testRegex": "src/.*(/__tests__/.*|(\\.|/)(test|spec))\\.[jt]sx?$",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "__tests__"
+    ]
+  },
+  "keywords": [
+    "React Native",
+    "WebView",
+    "DOM"
+  ],
+  "author": "Jules Sam. Randolph",
+  "license": "MIT"
+}
