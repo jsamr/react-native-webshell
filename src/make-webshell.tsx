@@ -3,7 +3,7 @@ import { Component, ComponentType } from 'react';
 import { NativeSyntheticEvent } from 'react-native';
 import featuresLoaderScript from './features-loader.webjs';
 import {
-  FeatureSource,
+  AssembledFeature,
   WebshellComponentProps,
   MinimalWebViewProps,
   WebshellStaticProps
@@ -27,7 +27,7 @@ function parseJSONSafe(text: string) {
   }
 }
 
-function serializeFeature(feature: FeatureSource) {
+function serializeFeature(feature: AssembledFeature) {
   return `{
     source:${feature.script},
     identifier:${JSON.stringify(feature.identifier)},
@@ -35,15 +35,24 @@ function serializeFeature(feature: FeatureSource) {
   }`;
 }
 
-function serializeFeatureList(specs: FeatureSource[]) {
+function serializeFeatureList(specs: AssembledFeature[]) {
   return `[${specs.map(serializeFeature).join(',')}]`;
 }
 
+/**
+ * Creates a React component which decorates WebView component with additionnal
+ * props to handle events from the DOM.
+ *
+ * @param WebView - A WebView component, typically exported from `react-native-webview`.
+ * @param assembledFeatures - Assembled features ready to be loaded in the WebView DOM.
+ *
+ * @public
+ */
 export function makeWebshell<
   W extends MinimalWebViewProps,
-  F extends FeatureSource[]
->(WebView: ComponentType<W>, ...featureSources: F) {
-  const serializedFeatures = serializeFeatureList(featureSources);
+  F extends AssembledFeature[]
+>(WebView: ComponentType<W>, ...assembledFeatures: F) {
+  const serializedFeatures = serializeFeatureList(assembledFeatures);
   const injectableScript = featuresLoaderScript.replace(
     '$$___FEATURES___$$',
     serializedFeatures
@@ -66,7 +75,7 @@ export function makeWebshell<
         if (typeof type === 'string' && typeof identifier === 'string') {
           if (type === 'feature') {
             // Handle as a feature message
-            const source = featureSources.find(
+            const source = assembledFeatures.find(
               (s) => s.identifier === identifier
             );
             const handlerName = source?.eventHandlerName ?? null;
@@ -102,5 +111,5 @@ export function makeWebshell<
         />
       );
     }
-  };
+  } as React.ComponentClass<WebshellComponentProps<W, F>>;
 }

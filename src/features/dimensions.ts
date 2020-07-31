@@ -2,6 +2,11 @@ import dimensionsScript from './dimensions.webjs';
 import { makeFeature } from '../make-feature';
 import { Feature } from '../types';
 
+/**
+ * An object describing customization for the dimensions feature.
+ *
+ * @public
+ */
 export interface DimensionsOptions {
   /**
    * The element to target when the DOM is loaded.
@@ -11,11 +16,14 @@ export interface DimensionsOptions {
    * When no elements are found matching the providing tag, should the script
    * raise an error?
    *
-   * @default false
+   * @defaultValue false
    */
   errorWhenNotFound?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DimensionsObject {
   width: number;
   height: number;
@@ -26,6 +34,8 @@ export interface DimensionsObject {
  * identified by `tagName` in the WebView pixels unit, including border widths,
  * but excluding margins. The first element matching the provided tagName is
  * retained. A new event will be triggered on every resize.
+ *
+ * @public
  */
 export const dimensionsFeature: Feature<
   DimensionsOptions,

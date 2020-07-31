@@ -1,2 +1,4 @@
 /src
 /integration
+/etc
+/lib/**/*.d.ts

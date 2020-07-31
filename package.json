@@ -3,7 +3,7 @@
   "version": "2.0.0-alpha.1",
   "description": "A Higher-order component to handle WebView DOM events in react-native",
   "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "types": "types/react-native-webshell/index.d.ts",
   "scripts": {
     "test": "npm run test:ts && npm run test:lint && npm run test:jest && npm run build && npm run test:integration",
     "test:jest": "jest src/",

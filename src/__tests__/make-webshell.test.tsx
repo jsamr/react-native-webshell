@@ -33,12 +33,12 @@ const optionFeature = makeFeature<
 
 describe('Webshell component', () => {
   it('sould mount without error', () => {
-    const Webshell = makeWebshell(WebView, helloFeature.compile());
+    const Webshell = makeWebshell(WebView, helloFeature.assemble());
     const renderer = TestRenderer.create(<Webshell />);
     expect(renderer.root).toBeTruthy();
   });
   it('should produce parsable es5 injectedJavaScript', () => {
-    const Webshell = makeWebshell(WebView, helloFeature.compile());
+    const Webshell = makeWebshell(WebView, helloFeature.assemble());
     const renderer = TestRenderer.create(<Webshell />);
     const webView = renderer.root.findByType(WebView);
     expect(() =>
@@ -47,7 +47,7 @@ describe('Webshell component', () => {
   });
   it('should handle feature messages', async () => {
     const onDummyHello = jest.fn();
-    const Webshell = makeWebshell(WebView, helloFeature.compile());
+    const Webshell = makeWebshell(WebView, helloFeature.assemble());
     TestRenderer.act(() => {
       TestRenderer.create(<Webshell onDummyHello={onDummyHello} />);
     });
@@ -56,7 +56,7 @@ describe('Webshell component', () => {
   it('should handle feature failures', () => {
     const onDummyMessage = jest.fn();
     const onFailure = jest.fn();
-    const Webshell = makeWebshell(WebView, failingFeature.compile());
+    const Webshell = makeWebshell(WebView, failingFeature.assemble());
     TestRenderer.act(() => {
       TestRenderer.create(
         <Webshell onDummyFailure={onDummyMessage} onShellError={onFailure} />
@@ -68,7 +68,7 @@ describe('Webshell component', () => {
     const onDummyMessage = jest.fn();
     const Webshell = makeWebshell(
       WebView,
-      optionFeature.compile({ foo: 'bar' })
+      optionFeature.assemble({ foo: 'bar' })
     );
     TestRenderer.act(() => {
       TestRenderer.create(<Webshell onDummyOption={onDummyMessage} />);
