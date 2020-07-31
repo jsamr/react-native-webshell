@@ -1,3 +1,10 @@
+# [2.0.0-alpha.2](http://jsamr/react-native-webshell/compare/2.0.0-alpha.1...2.0.0-alpha.2) (2020-07-31)
+
+
+### Bug Fixes
+
+* reorganize type exports to include WebshellComponentOf ([36cc96e](http://jsamr/react-native-webshell/commits/36cc96ebaaafa8bb321bdfd05d27cd94e61fa81c))
+
 # [2.0.0-alpha.1](http://jsamr/react-native-webshell/compare/2.0.0-alpha.0...2.0.0-alpha.1) (2020-07-31)
 
 
