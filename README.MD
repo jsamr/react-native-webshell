@@ -25,8 +25,8 @@ for communicating information to the `Webshell` controller.
 ## Basic usage
 
 This library is fairly easy to use. Just make a shell by passing the
-`makeShell` function the `WebView` component and the compiled features you wish
-the shell to implement. Each feature can be compiled with options, which alter
+`makeShell` function the `WebView` component and the assembled features you wish
+the shell to implement. Each feature can be assembled with options, which alter
 their behavior. For example, the `linkPressFeature` default behavior prevents
 click events on anchors to propagate, effectively disallowing redirects. You
 can, however, change this behavior to let redirects happen while still being
@@ -46,8 +46,8 @@ import WebView from 'react-native-webview';
 
 const Webshell = makeWebshell(
   WebView,
-  linkPressFeature.compile({ preventDefault: true }),
-  dimensionsFeature.compile({ tagName: 'table' })
+  linkPressFeature.assemble({ preventDefault: true }),
+  dimensionsFeature.assemble({ tagName: 'table' })
 );
 
 export default function EnhancedWebView(webViewProps) {
@@ -83,7 +83,7 @@ is convenient to communicate the different types implied in a feature. There
 are four important areas to specify in a feature:
 
 1. How does it behave in the DOM? → See the content of `linkPressScript`.
-2. What options can it be compiled with? → `LinkPressOptions`
+2. What options can it be assembled with? → `LinkPressOptions`
 3. What is the name of the event handler prop which will be available in the
    `WebShell`? → `onLinkPress`
 4. What type of payload does it ship with events? → `string`
@@ -93,20 +93,33 @@ are four important areas to specify in a feature:
 
 import linkPressScript from './link-press.webjs';
 import { makeFeature } from '../make-feature';
+import { Feature } from '../types';
 
+/**
+ * An object describing customization for the linkPress feature.
+ *
+ * @public
+ */
 export interface LinkPressOptions {
+  /**
+   * Prevent click events on anchors to propagate.
+   *
+   * @defaultValue true
+   */
   preventDefault?: boolean;
 }
 
 /**
  * This feature allows to intercept clicks on anchors (`<a>`). By default, it
  * will prevent the click from propagating. But you can disable this option.
+ *
+ * @public
  */
-export const linkPressFeature = makeFeature<
+export const linkPressFeature: Feature<
   LinkPressOptions,
   'onLinkPress',
   string
->({
+> = makeFeature({
   script: linkPressScript,
   eventHandlerName: 'onLinkPress',
   identifier: 'org.webshell.linkPress'

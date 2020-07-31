@@ -9,8 +9,8 @@ import WebView from 'react-native-webview';
 
 const Webshell = makeWebshell(
   WebView,
-  linkPressFeature.compile({ preventDefault: true }),
-  dimensionsFeature.compile({ tagName: 'table' })
+  linkPressFeature.assemble({ preventDefault: true }),
+  dimensionsFeature.assemble({ tagName: 'table' })
 );
 
 export default function EnhancedWebView(webViewProps) {

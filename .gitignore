@@ -68,5 +68,5 @@ buck-out/
 # This library
 /lib/
 
-# api-extractor temporary files
+# api-extractor
 /temp

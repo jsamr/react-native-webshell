@@ -3,6 +3,7 @@ module.exports = {
   extends: ['@react-native-community', 'plugin:compat/recommended'],
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint'],
+  ignorePatterns: ["lib/", "types/"],
   overrides: [
     {
       files: ['src/**/*.webjs'],
