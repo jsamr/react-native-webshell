@@ -97,7 +97,7 @@ are four important areas to specify in a feature:
 1. How does it behave in the DOM? → See the content of `linkPressScript`.
 2. What options can it be assembled with? → `LinkPressOptions`
 3. What is the name of the event handler prop which will be available in the
-   `WebShell`? → `onLinkPress`
+   `Webshell`? → `onLinkPress`
 4. What type of payload does it ship with events? → `string`
 
 ```ts
