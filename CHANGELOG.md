@@ -1,3 +1,10 @@
+# [2.0.0-alpha.4](http://jsamr/react-native-webshell/compare/2.0.0-alpha.3...2.0.0-alpha.4) (2020-07-31)
+
+
+### Bug Fixes
+
+* type WebshellComponentOf coercion to return of makeWebshell ([fa3b503](http://jsamr/react-native-webshell/commits/fa3b503987d87afc21758a7910081b146bcfc249))
+
 # [2.0.0-alpha.3](http://jsamr/react-native-webshell/compare/2.0.0-alpha.2...2.0.0-alpha.3) (2020-07-31)
 
 # [2.0.0-alpha.2](http://jsamr/react-native-webshell/compare/2.0.0-alpha.1...2.0.0-alpha.2) (2020-07-31)
