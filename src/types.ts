@@ -57,13 +57,15 @@ export interface Feature<O extends {}, E extends string, P> {
   readonly compile: (options?: O) => FeatureSource<O, E, P>;
 }
 
+export interface WebshellStaticProps<W> {
+  onShellError?: (featureIdentifier: string, error: string) => void;
+  webViewProps?: W;
+}
+
 export type WebshellComponentProps<
   W,
   F extends FeatureSource<{}, string, unknown>[]
-> = WebshellHandlerProp<F[number]> & {
-  onShellError?: (featureIdentifier: string, error: string) => void;
-  webViewProps: W;
-};
+> = WebshellHandlerProp<F[number]> & WebshellStaticProps<W>;
 
 export interface MinimalWebViewProps {
   onMessage?: unknown;

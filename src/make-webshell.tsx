@@ -5,7 +5,8 @@ import featuresLoaderScript from './features-loader.webjs';
 import {
   FeatureSource,
   WebshellComponentProps,
-  MinimalWebViewProps
+  MinimalWebViewProps,
+  WebshellStaticProps
 } from './types.js';
 
 interface WebViewMessage {
@@ -50,7 +51,7 @@ export function makeWebshell<
   return class Webshell extends Component<WebshellComponentProps<W, F>> {
     static defaultProps = {
       webViewProps: {}
-    };
+    } as WebshellComponentProps<W, F>;
 
     handleOnMessage = ({
       nativeEvent
@@ -58,7 +59,7 @@ export function makeWebshell<
       const {
         webViewProps: { onMessage },
         onShellError
-      } = this.props;
+      } = this.props as Required<WebshellStaticProps<W>>;
       const parsedJSON = parseJSONSafe(nativeEvent.data);
       if (parsedJSON && typeof parsedJSON === 'object') {
         const { type, identifier, body } = parsedJSON;
@@ -87,8 +88,8 @@ export function makeWebshell<
     };
 
     render() {
-      const { injectedJavaScript, ...webViewProps } =
-        this.props.webViewProps || {};
+      const { injectedJavaScript, ...webViewProps } = this.props
+        .webViewProps as W;
       const safeUserscript =
         typeof injectedJavaScript === 'string' ? injectedJavaScript : '';
       const resultingJavascript = `(function(){${safeUserscript};${injectableScript};})();true;`;
