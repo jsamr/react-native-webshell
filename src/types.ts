@@ -1,6 +1,6 @@
 // HELPER TYPES
 
-import { ComponentType } from 'react';
+import { ComponentClass } from 'react';
 
 /**
  * A lookup type to find the event name from an assembled feature.
@@ -30,7 +30,7 @@ export type PayloadOf<T, E extends string> = T extends AssembledFeature<
  * @public
  */
 export type AssembledFeatureOf<F> = F extends Feature<infer O, infer E, infer P>
-  ? AssembledFeature<Object, E, P>
+  ? AssembledFeature<O, E, P>
   : never;
 
 /**
@@ -48,7 +48,7 @@ export type WebshellHandlerProps<
  * A utility type to infer WebshellComponent type from a list of features.
  *
  * @example
- * ```ts
+ * ```
  * const Webshell: WebshellComponentOf<
  *  WebViewProps,
  *  [typeof featureA, typeof featureB]
@@ -59,12 +59,11 @@ export type WebshellHandlerProps<
  */
 export type WebshellComponentOf<
   W extends MinimalWebViewProps,
-  F
-> = F extends Feature<{}, string, unknown>[]
-  ? ComponentType<
-      W & WebshellComponentProps<W, AssembledFeatureOf<F[number]>[]>
-    >
-  : never;
+  F extends Feature<any, any, any>[]
+> = ComponentClass<
+  W & WebshellComponentProps<W, AssembledFeatureOf<F[number]>[]>,
+  unknown
+>;
 
 // USEFUL TYPES
 

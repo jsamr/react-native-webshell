@@ -111,5 +111,5 @@ export function makeWebshell<
         />
       );
     }
-  } as React.ComponentClass<WebshellComponentProps<W, F>>;
+  } as React.ComponentClass<WebshellComponentProps<W, F>, unknown>;
 }

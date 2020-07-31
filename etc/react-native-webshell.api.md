@@ -4,6 +4,7 @@
 
 ```ts
 
+import { ComponentClass } from 'react';
 import { ComponentType } from 'react';
 import * as React_2 from 'react';
 
@@ -17,7 +18,7 @@ export interface AssembledFeature<O extends {} = {}, E extends string = string, 
 }
 
 // @public
-export type AssembledFeatureOf<F> = F extends Feature<infer O, infer E, infer P> ? AssembledFeature<Object, E, P> : never;
+export type AssembledFeatureOf<F> = F extends Feature<infer O, infer E, infer P> ? AssembledFeature<O, E, P> : never;
 
 // @public
 export const dimensionsFeature: Feature<DimensionsOptions, 'onDimensions', DimensionsObject>;
@@ -66,7 +67,7 @@ export interface MakeFeatureParams<E extends string, P> {
 }
 
 // @public
-function makeWebshell<W extends MinimalWebViewProps, F extends AssembledFeature[]>(WebView: ComponentType<W>, ...assembledFeatures: F): React_2.ComponentClass<WebshellComponentProps<W, F>, any>;
+function makeWebshell<W extends MinimalWebViewProps, F extends AssembledFeature[]>(WebView: ComponentType<W>, ...assembledFeatures: F): React_2.ComponentClass<WebshellComponentProps<W, F>, unknown>;
 
 export default makeWebshell;
 
@@ -88,7 +89,7 @@ export interface MinimalWebViewProps {
 export type PayloadOf<T, E extends string> = T extends AssembledFeature<{}, E, infer P> ? P : never;
 
 // @public
-export type WebshellComponentOf<W extends MinimalWebViewProps, F> = F extends Feature<{}, string, unknown>[] ? ComponentType<W & WebshellComponentProps<W, AssembledFeatureOf<F[number]>[]>> : never;
+export type WebshellComponentOf<W extends MinimalWebViewProps, F extends Feature<any, any, any>[]> = ComponentClass<W & WebshellComponentProps<W, AssembledFeatureOf<F[number]>[]>, unknown>;
 
 // @public (undocumented)
 export type WebshellComponentProps<W, F extends AssembledFeature<{}, string, unknown>[]> = WebshellHandlerProps<F[number]> & WebshellStaticProps<W>;
