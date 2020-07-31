@@ -22,7 +22,13 @@ export default function EnhancedWebView(webViewProps) {
   const onShellError = useCallback(
     // featureIdentifier == linkPressFeature.identifier
     (featureIdentifier, errorMessage) => {
-      console.info(featureIdentifier, errorMessage);
+      if (featureIdentifier === linkPressFeature.identifier) {
+        // Handle linkPress error
+        console.error(errorMessage);
+      } else if (featureIdentifier === dimensionsFeature.identifier) {
+        // Handle dimensions error
+        console.error(errorMessage);
+      }
     },
     []
   );
