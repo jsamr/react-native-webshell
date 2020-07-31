@@ -1,4 +1,4 @@
-/src
-/integration
-/etc
+/*
+!/lib
 /lib/**/*.d.ts
+!/types

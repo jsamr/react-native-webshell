@@ -16,7 +16,8 @@
     "build:js": "babel -d lib --extensions '.tsx,.ts' --ignore '**/__tests__' --ignore '**/*.d.ts' --ignore '**/types.ts' src/",
     "build:ts": "tsc --build tsconfig-build.json && api-extractor run --local --verbose",
     "build:doc": "embedme README.MD",
-    "init:integration": "cd integration && npm install"
+    "init:integration": "cd integration && npm install",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
