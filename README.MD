@@ -191,6 +191,11 @@ To work fine, the DOM script must comply with those requirements:
 
 **Important note**: In this project, script files are imported as string (see [tooling section](#tooling)).
 
+## API Reference
+
+The API reference is build with the amazing [@microsoft/api-extractor](https://api-extractor.com/) utility.
+Read the API here: [**doc/react-native-webshell.md**](./doc/react-native-webshell.md).
+
 <a name="tooling"></a>
 
 ## Tooling
