@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable no-eval */
 import * as React from 'react';
 import { View } from 'react-native';
 import { MinimalWebViewProps } from '../types';

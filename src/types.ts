@@ -68,6 +68,18 @@ export type WebshellComponentOf<
 // USEFUL TYPES
 
 /**
+ * This type specifies the shape of the object passed to DOM features scripts.
+ *
+ * @public
+ */
+export interface WebjsContext<O extends {}, P> {
+  readonly options: O;
+  readonly postMessage: (payload: P) => void;
+  readonly warn: (message: string) => void;
+  readonly error: (message: string) => void;
+}
+
+/**
  * A feature with its options, ready to be consumed by {@link makeWebshell}.
  *
  * @public

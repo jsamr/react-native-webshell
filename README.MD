@@ -225,6 +225,20 @@ options:
 
 See our [.eslintrc.js](.eslintrc.js) file.
 
+### Jest
+
+Jest will use our babel config file if `babel-jest` is installed. The most
+important aspect of our jest setup is that it has two configurations:
+
+- One to test our React Native code, which will use the `react-native` preset,
+  [core.jest.config.js](core.jest.config.js);
+- One to test our DOM scripts, which will use the jsdom testing environment,
+  [web.jest.config.js](core.jest.config.js).
+
+To run jest with multiple configurations, you just need to [set the projects
+attribute as an array of config
+files](https://stackoverflow.com/a/47209803/2779871).
+
 ### Editor
 
 The last thing you need to do is associate javascript syntax with the custom

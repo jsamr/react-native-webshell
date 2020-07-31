@@ -5,7 +5,7 @@ import dummyFailingScript from './feat/dummy-failing.webjs';
 import dummyOptionScript from './feat/dummy-option.webjs';
 import { makeWebshell } from '../make-webshell';
 import { makeFeature } from '../make-feature';
-import { validateJavascript } from './utils';
+import { validateJavascript } from './core-utils';
 import WebView from './WebView';
 
 const helloFeature = makeFeature({

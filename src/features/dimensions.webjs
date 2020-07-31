@@ -12,8 +12,14 @@ function dimensionsFeature(context) {
     var elements = document.getElementsByTagName(tagName);
     if (elements.length > 0) {
       var elem = elements[0];
-      var elemHeight = elem.scrollHeight + elem.clientTop + elem.clientBottom;
-      var elemWidth = elem.scrollWidth + elem.clientLeft + elem.clientRight;
+      var elemHeight =
+        Number(elem.scrollHeight) +
+        Number(elem.clientTop || 0) +
+        Number(elem.clientBottom || 0);
+      var elemWidth =
+        Number(elem.scrollWidth) +
+        Number(elem.clientLeft || 0) +
+        Number(elem.clientRight || 0);
       postMessage({
         width: elemWidth,
         height: elemHeight
