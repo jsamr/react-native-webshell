@@ -15,7 +15,7 @@
     "build:clean": "rimraf lib",
     "build:js": "babel -d lib --extensions '.tsx,.ts' --ignore '**/__tests__' --ignore '**/*.d.ts' --ignore '**/types.ts' src/",
     "build:ts": "tsc --build tsconfig-build.json && api-extractor run --local --verbose",
-    "build:doc": "embedme README.MD",
+    "build:doc": "embedme README.MD && api-documenter markdown --input-folder temp --output-folder doc",
     "init:integration": "cd integration && npm install",
     "prepublish": "npm run build"
   },
@@ -31,6 +31,7 @@
     "@babel/runtime": "^7.8.4",
     "@commitlint/cli": "^9.1.1",
     "@commitlint/config-conventional": "^9.1.1",
+    "@microsoft/api-documenter": "^7.8.21",
     "@microsoft/api-extractor": "7.9.2",
     "@react-native-community/eslint-config": "^1.1.0",
     "@release-it/conventional-changelog": "^1.1.4",
