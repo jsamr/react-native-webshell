@@ -4,14 +4,18 @@ export type EventNameOf<T> = T extends FeatureSource<{}, infer E, unknown>
   ? E
   : never;
 
-export type PayloadOf<T> = T extends FeatureSource<{}, string, infer P>
+export type PayloadOf<T, E extends string> = T extends FeatureSource<
+  {},
+  E,
+  infer P
+>
   ? P
   : never;
 
 export type WebshellHandlerProp<
   F extends FeatureSource<{}, string, unknown>
 > = {
-  [K in EventNameOf<F>]?: (p: PayloadOf<F>) => void;
+  [E in EventNameOf<F>]?: (p: PayloadOf<F, E>) => void;
 };
 
 // USEFUL TYPES

@@ -2,7 +2,8 @@ import React, { useCallback } from 'react';
 import { Linking } from 'react-native';
 import makeWebshell, {
   linkPressFeature,
-  dimensionsFeature
+  dimensionsFeature,
+  DimensionsObject
 } from 'react-native-webshell';
 import WebView from 'react-native-webview';
 
@@ -13,9 +14,9 @@ const Webshell = makeWebshell(
 );
 
 export default function EnhancedWebView(webViewProps) {
-  const onLinkPress = useCallback((url) => Linking.openURL(url), []);
+  const onLinkPress = useCallback((url: string) => Linking.openURL(url), []);
   const onDimensions = useCallback(
-    ({ width, height }) => console.info(width, height),
+    ({ width, height }: DimensionsObject) => console.info(width, height),
     []
   );
   const onShellError = useCallback(

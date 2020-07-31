@@ -15,6 +15,11 @@ export interface DimensionsOptions {
   errorWhenNotFound?: boolean;
 }
 
+export interface DimensionsObject {
+  width: number;
+  height: number;
+}
+
 /**
  * This feature enables receiving the full width and height of an element
  * identified by `tagName` in the WebView pixels unit, including border widths,
@@ -24,10 +29,7 @@ export interface DimensionsOptions {
 export const dimensionsFeature = makeFeature<
   DimensionsOptions,
   'onDimensions',
-  {
-    width: number;
-    height: number;
-  }
+  DimensionsObject
 >({
   script: dimensionsScript,
   eventHandlerName: 'onDimensions',
