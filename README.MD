@@ -22,6 +22,12 @@ And you can, of course, implement any feature you'd like.
 It uses `WebView#injectedJavascript` prop to inject javascript “features” (snippets) responsible
 for communicating information to the `Webshell` controller.
 
+## Install
+
+```bash
+npm install react-native-webshell
+```
+
 ## Basic usage
 
 This library is fairly easy to use. Just make a shell by passing the
