@@ -1,5 +1,7 @@
 // HELPER TYPES
 
+import { ComponentType } from 'react';
+
 export type EventNameOf<T> = T extends FeatureSource<{}, infer E, unknown>
   ? E
   : never;
@@ -12,11 +14,22 @@ export type PayloadOf<T, E extends string> = T extends FeatureSource<
   ? P
   : never;
 
+export type FeatureSourceOf<F> = F extends Feature<infer O, infer E, infer P>
+  ? FeatureSource<Object, E, P>
+  : never;
+
 export type WebshellHandlerProp<
   F extends FeatureSource<{}, string, unknown>
 > = {
   [E in EventNameOf<F>]?: (p: PayloadOf<F, E>) => void;
 };
+
+export type WebshellComponentOf<
+  W extends MinimalWebViewProps,
+  F
+> = F extends Feature<{}, string, unknown>[]
+  ? ComponentType<W & WebshellComponentProps<W, FeatureSourceOf<F[number]>[]>>
+  : never;
 
 // USEFUL TYPES
 
