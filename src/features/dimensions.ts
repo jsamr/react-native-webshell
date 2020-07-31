@@ -1,5 +1,6 @@
 import dimensionsScript from './dimensions.webjs';
 import { makeFeature } from '../make-feature';
+import { Feature } from '../types';
 
 export interface DimensionsOptions {
   /**
@@ -26,11 +27,11 @@ export interface DimensionsObject {
  * but excluding margins. The first element matching the provided tagName is
  * retained. A new event will be triggered on every resize.
  */
-export const dimensionsFeature = makeFeature<
+export const dimensionsFeature: Feature<
   DimensionsOptions,
   'onDimensions',
   DimensionsObject
->({
+> = makeFeature({
   script: dimensionsScript,
   eventHandlerName: 'onDimensions',
   identifier: 'org.webshell.dimensions'
