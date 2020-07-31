@@ -1,3 +1,10 @@
+# [2.0.0-alpha.1](http://jsamr/react-native-webshell/compare/2.0.0-alpha.0...2.0.0-alpha.1) (2020-07-31)
+
+
+### Features
+
+* **types:** provide a utility type WebshellComponentOf ([427b199](http://jsamr/react-native-webshell/commits/427b199047227ade673bc48464e76aaad7e6f4c5))
+
 # [2.0.0-alpha.0](http://jsamr/react-native-webshell/compare/1.0.0-alpha.0...2.0.0-alpha.0) (2020-07-31)
 
 
