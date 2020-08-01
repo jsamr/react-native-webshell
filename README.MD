@@ -3,6 +3,8 @@
 [![codecov](https://img.shields.io/codecov/c/gh/jsamr/react-native-webshell)]((https://codecov.io/gh/jsamr/react-native-webshell))
 [![CI](https://github.com/jsamr/react-native-webshell/workflows/CI/badge.svg?branch=master)](https://github.com/jsamr/react-native-webshell/actions?query=branch%3Amaster+workflow%3ACI)
 
+> :warning: *This library is in early development.*
+
 # Webshell
 
 A Higher-order component to handle `WebView` DOM events in `react-native`. It provides an
