@@ -1,3 +1,5 @@
+# [2.0.0-alpha.5](http://jsamr/react-native-webshell/compare/2.0.0-alpha.4...2.0.0-alpha.5) (2020-08-01)
+
 # [2.0.0-alpha.4](http://jsamr/react-native-webshell/compare/2.0.0-alpha.3...2.0.0-alpha.4) (2020-07-31)
 
 
