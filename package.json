@@ -60,6 +60,11 @@
     "rimraf": "^3.0.2",
     "typescript": "^3.9.7"
   },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  },
+  "dependencies": {},
   "jest": {
     "projects": [
       "core.jest.config.js",
