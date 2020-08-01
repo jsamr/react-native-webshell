@@ -93,7 +93,6 @@ export type PayloadOf<T, E extends string> = T extends AssembledFeature<{}, E, i
 // @public
 export interface WebjsContext<O extends {}, P> {
     readonly error: (message: string) => void;
-    // Warning: (tsdoc-undefined-tag) The TSDoc tag "@see" is not defined in this configuration
     readonly options: O;
     readonly postMessage: (payload: P) => void;
     readonly warn: (message: string) => void;

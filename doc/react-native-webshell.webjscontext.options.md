@@ -4,8 +4,7 @@
 
 ## WebjsContext.options property
 
-The options to customize the script behavior.
-
+The options to customize the script behavior. See [AssembledFeature.options](./react-native-webshell.assembledfeature.options.md)<!-- -->.
 
 <b>Signature:</b>
 
