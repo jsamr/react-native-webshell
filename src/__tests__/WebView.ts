@@ -2,28 +2,15 @@
 import * as React from 'react';
 import { View } from 'react-native';
 import { MinimalWebViewProps } from '../types';
-import { JSDOM } from 'jsdom';
-
-function runScriptInDOM(html: string, script: unknown, onMessage: unknown) {
-  const dom = new JSDOM(html, {
-    runScripts: 'dangerously'
-  });
-  dom.window.ReactNativeWebView = {
-    postMessage: (message: any) => {
-      typeof onMessage === 'function' &&
-        onMessage({ nativeEvent: { data: message } });
-    }
-  };
-  if (typeof script === 'string') {
-    dom.window.eval(script);
-  }
-}
+import { runScriptInDOM } from './core-utils';
 
 export default function WebView({
   injectedJavaScript,
+  javaScriptEnabled,
   onMessage,
   onError,
-  source
+  source,
+  ...otherProps
 }: MinimalWebViewProps) {
   React.useEffect(() => {
     const html =
@@ -44,5 +31,5 @@ export default function WebView({
     }
   }, [injectedJavaScript, onMessage, onError, source]);
 
-  return <View />;
+  return React.createElement(View, otherProps);
 }

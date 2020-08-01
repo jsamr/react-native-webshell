@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-undef
-var snippets = $$___FEATURES___$$;
+var features = $$___FEATURES___$$;
 var RNWV = window.ReactNativeWebView;
 function registerFeature(specs) {
   if (specs && typeof specs === 'object') {
@@ -33,7 +33,7 @@ function registerFeature(specs) {
     try {
       executable.call(null, context);
     } catch (e) {
-      console.error(e);
+      context.error(e);
       RNWV.postMessage(
         JSON.stringify({
           type: 'error',
@@ -50,6 +50,6 @@ function registerFeature(specs) {
   }
 }
 
-if (typeof snippets === 'object') {
-  Array.prototype.forEach.call(snippets, registerFeature);
+if (Array.isArray(features)) {
+  Array.prototype.forEach.call(features, registerFeature);
 }
