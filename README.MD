@@ -7,12 +7,17 @@
 
 # Webshell
 
-A Higher-order component to handle `WebView` DOM events in `react-native`. It provides an
-abstraction layer over the [dual-way message
-system](https://github.com/react-native-community/react-native-webview/blob/master/docs/Guide.md#communicating-between-js-and-native)
-embedded in
+*Webshell is:*
+
+- A Higher-order component to handle `WebView` DOM events in `react-native`. It
+provides an abstraction layer over the [message
+  system](https://github.com/react-native-community/react-native-webview/blob/master/docs/Guide.md#communicating-between-js-and-native)
+  embedded in
 [`react-native-webview`](https://github.com/react-native-community/react-native-webview).
-Here are examples of features you can enable with this HOC:
+- A set of utilities and good practices to implement well-tested, reliable
+scripts to run on the (`WebView`) DOM.
+
+Here are examples of features shipped with this library:
 
 - Intercept click events on anchors and prevent navigation (`linkPressFeature`);
 - Get notified when an element size changes in the view (`dimensionsFeature`);
@@ -177,21 +182,17 @@ function linkPressFeature(arg) {
 
 ```
 
-To work fine, the DOM script must comply with those requirements:
+**Every DOM script top declaration must be a function** taking one argument.
+The shape of this argument is depicted in
+[WebjsContext](doc/react-native-webshell.webjscontext.md) definition. For wide
+compatibility purposes, it is recommended to
 
-1. The top level declaration file must be a function taking one argument. This
-   argument is an object with the attributes `postMessage`, a function to send
-   messages to the shell which will be redirected to the appropriate handler,
-   and `options`, an object which has been passed during “compilation”.
-2. `postMessage` must be invoked with an argument compatible with the payload
-   type defined in the feature object.
-3. `options` object must be compatible with the options type defined in the
-   feature object.
-4. The `options` object must be serializable to JSON.
-5. For wide compatibility purposes, it is best to stick with ECMAScript 5
-   syntax. This can be enforced with the appropriate tooling (see [tooling section](#tooling)).
+- enforce ECMAScript 5 syntax;
+- lint the script with the eslint compat plugin to enforce backward compatibility with
+  old engines;
+- unit-test with jest jsdom environment;
 
-**Important note**: In this project, script files are imported as string (see [tooling section](#tooling)).
+See the [tooling section](#tooling) for more details on how to achieve this.
 
 ## API Reference
 
@@ -234,7 +235,7 @@ important aspect of our jest setup is that it has two configurations:
 
 - One to test our React Native code, which will use the `react-native` preset,
   [core.jest.config.js](core.jest.config.js);
-- One to test our DOM scripts, which will use the jsdom testing environment,
+- One to test our DOM scripts, which will use the `jsdom` testing environment,
   [web.jest.config.js](core.jest.config.js).
 
 To run jest with multiple configurations, you just need to [set the projects
@@ -243,6 +244,6 @@ files](https://stackoverflow.com/a/47209803/2779871).
 
 ### Editor
 
-The last thing you need to do is associate javascript syntax with the custom
-extension you have chosen in your text editor. From nowon, you will have a full
+The last thing you need to do is associate Javascript syntax with the custom
+extension you have chosen in your text editor. From now-on, you will have a full
 featured QC in those scripts!

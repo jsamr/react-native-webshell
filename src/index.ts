@@ -9,7 +9,8 @@ export type {
   WebshellComponentOf,
   WebshellStaticProps,
   WebshellComponentProps,
-  WebshellHandlerProps
+  WebshellHandlerProps,
+  WebjsContext
 } from './types';
 export * from './make-feature';
 export * from './features';

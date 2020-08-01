@@ -73,9 +73,25 @@ export type WebshellComponentOf<
  * @public
  */
 export interface WebjsContext<O extends {}, P> {
+  /**
+   * The options to customize the script behavior.
+   *
+   * {@see AssembledFeature.options}
+   */
   readonly options: O;
+  /**
+   * When invoked, the webshell will call the handler associated with this script.
+   *
+   * @param payload - The value which will be passed to the handler.
+   */
   readonly postMessage: (payload: P) => void;
+  /**
+   * Safely post a warn message to the console.
+   */
   readonly warn: (message: string) => void;
+  /**
+   * Safely post an error message to the console.
+   */
   readonly error: (message: string) => void;
 }
 
@@ -91,6 +107,14 @@ export interface AssembledFeature<
 > {
   /**
    * The string containing valid ECMAScript 5 to be run in the WebView.
+   *
+   * @remarks
+   * The script must define a single function which only argument is of the
+   * type {@link WebjsContext}.
+   *
+   * It is recommended that you use eslint to validate this script syntax, and
+   * event better, unit-test the script. See our repository home page for more
+   * information.
    */
   readonly script: string;
   /**

@@ -11,3 +11,10 @@ The string containing valid ECMAScript 5 to be run in the WebView.
 ```typescript
 readonly script: string;
 ```
+
+## Remarks
+
+The script must define a single function which only argument is of the type [WebjsContext](./react-native-webshell.webjscontext.md)<!-- -->.
+
+It is recommended that you use eslint to validate this script syntax, and event better, unit-test the script. See our repository home page for more information.
+

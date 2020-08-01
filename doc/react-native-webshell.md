@@ -22,6 +22,7 @@
 |  [LinkPressOptions](./react-native-webshell.linkpressoptions.md) | An object describing customization for the linkPress feature. |
 |  [MakeFeatureParams](./react-native-webshell.makefeatureparams.md) | An object to specify attributes of the feature. |
 |  [MinimalWebViewProps](./react-native-webshell.minimalwebviewprops.md) |  |
+|  [WebjsContext](./react-native-webshell.webjscontext.md) | This type specifies the shape of the object passed to DOM features scripts. |
 |  [WebshellStaticProps](./react-native-webshell.webshellstaticprops.md) |  |
 
 ## Variables
