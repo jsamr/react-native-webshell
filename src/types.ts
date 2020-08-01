@@ -166,4 +166,5 @@ export interface MinimalWebViewProps {
   onError?: unknown;
   injectedJavaScript?: unknown;
   javaScriptEnabled?: unknown;
+  source?: unknown;
 }

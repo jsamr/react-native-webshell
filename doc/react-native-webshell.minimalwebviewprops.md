@@ -19,4 +19,5 @@ export interface MinimalWebViewProps
 |  [javaScriptEnabled](./react-native-webshell.minimalwebviewprops.javascriptenabled.md) | unknown |  |
 |  [onError](./react-native-webshell.minimalwebviewprops.onerror.md) | unknown |  |
 |  [onMessage](./react-native-webshell.minimalwebviewprops.onmessage.md) | unknown |  |
+|  [source](./react-native-webshell.minimalwebviewprops.source.md) | unknown |  |
 

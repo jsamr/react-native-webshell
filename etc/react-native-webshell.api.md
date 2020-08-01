@@ -83,6 +83,8 @@ export interface MinimalWebViewProps {
     onError?: unknown;
     // (undocumented)
     onMessage?: unknown;
+    // (undocumented)
+    source?: unknown;
 }
 
 // @public
