@@ -70,3 +70,6 @@ buck-out/
 
 # api-extractor
 /temp
+
+# Types must be bundled with api-extractor, not included in the repo
+/types
