@@ -82,20 +82,20 @@
   "author": "Jules Sam. Randolph <jules.sam.randolph@gmail.com> (https://github.com/jsamr)",
   "license": "MIT",
   "release-it": {
+    "git": {
+      "commitMessage": "chore: release ${version}",
+      "tagName": "v${version}"
+    },
+    "npm": {
+      "publish": true
+    },
     "github": {
       "release": true
     },
-    "git": {
-      "commitMessage": "chore: release v${version}"
-    },
     "plugins": {
       "@release-it/conventional-changelog": {
-        "preset": "angular",
-        "infile": "CHANGELOG.md"
+        "preset": "angular"
       }
-    },
-    "hooks": {
-      "before:init": "npm test"
     }
   },
   "@react-native-community/bob": {
