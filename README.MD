@@ -1,6 +1,6 @@
 [![npm](https://img.shields.io/npm/v/react-native-webshell)](https://www.npmjs.com/package/react-native-webshell)
 [![semver](https://img.shields.io/badge/semver-2.0.0-e10079.svg)](https://semver.org/spec/v2.0.0.html)
-[![codecov](https://img.shields.io/codecov/c/gh/jsamr/react-native-webshell)]((https://codecov.io/gh/jsamr/react-native-webshell))
+[![codecov](https://codecov.io/gh/jsamr/react-native-webshell/branch/master/graph/badge.svg)](https://codecov.io/gh/jsamr/react-native-webshell)
 [![CI](https://github.com/jsamr/react-native-webshell/workflows/CI/badge.svg?branch=master)](https://github.com/jsamr/react-native-webshell/actions?query=branch%3Amaster+workflow%3ACI)
 
 > :warning: *This library is in early development.*
