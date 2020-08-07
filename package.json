@@ -1,6 +1,6 @@
 {
   "name": "react-native-webshell",
-  "version": "2.0.0-alpha.6",
+  "version": "2.0.0-alpha.7",
   "description": "A Higher-order component to handle WebView DOM events in react-native",
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
