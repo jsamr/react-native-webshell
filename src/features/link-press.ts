@@ -1,6 +1,6 @@
 import linkPressScript from './link-press.webjs';
 import { makeFeature } from '../make-feature';
-import { Feature } from '../types';
+import type { Feature } from '../types';
 
 /**
  * An object describing customization for the linkPress feature.

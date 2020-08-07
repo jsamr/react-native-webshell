@@ -17,7 +17,8 @@ module.exports = {
         'no-unused-vars': 0,
         strict: ['error', 'never'],
         '@typescript-eslint/no-unused-vars': 'off',
-        'dot-notation': 'off'
+        'dot-notation': 'off',
+        'compat/compat': ['error', 'Android >= 4.1, ChromeAndroid >= 0, iOS >= 8.0, UCAndroid >= 0']
       }
     }
   ],

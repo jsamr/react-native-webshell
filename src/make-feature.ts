@@ -1,4 +1,4 @@
-import { Feature } from './types';
+import type { Feature } from './types';
 
 /**
  * An object to specify attributes of the feature.
