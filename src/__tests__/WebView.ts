@@ -1,5 +1,6 @@
 /* eslint-disable dot-notation */
 import * as React from 'react';
+import { useEffect } from 'react';
 import { View } from 'react-native';
 import { MinimalWebViewProps } from '../types';
 import { runScriptInDOM } from './core-utils';
@@ -12,7 +13,7 @@ export default function WebView({
   source,
   ...otherProps
 }: MinimalWebViewProps) {
-  React.useEffect(() => {
+  useEffect(() => {
     const html =
       source && typeof source === 'object' && typeof source['html'] === 'string'
         ? source['html']
