@@ -5,6 +5,7 @@
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
   "types": "types/react-native-webshell/index.d.ts",
+  "files": ["lib", "src", "types"],
   "scripts": {
     "test": "npm run test:ts && npm run test:lint && npm run test:jest && npm run build && npm run test:integration",
     "test:jest": "jest src/",
