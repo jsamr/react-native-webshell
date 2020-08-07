@@ -17,5 +17,5 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true
   },
-  "exclude": ["node_modules", "integration", "**/__tests__"]
+  "exclude": ["node_modules", "integration", "**/__tests__", "lib", "types"]
 }
